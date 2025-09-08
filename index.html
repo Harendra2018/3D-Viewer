@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>3D Room Viewer with Radial Gradient</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="header-container">
+    <div class="header-title">Monte Sereno, CA</div>
+    <div class="header-subtitle">3D Virtual Tour</div>
+  </div>
+
+  <!-- Updated controls container with floor selector above main controls -->
+  <div class="controls-container">
+    <!-- Floor Selector Dropdown -->
+    <div class="floor-selector">
+      <button class="floor-dropdown-toggle" id="floorDropdownToggle">
+        <span class="floor-dropdown-text">
+          <img src="textures/floor_sel.svg" class="floor-icon">
+          <span id="currentFloorText">All Floors</span>
+        </span>
+        <span class="floor-dropdown-arrow">▼</span>
+      </button>
+      <div class="floor-dropdown-menu" id="floorDropdownMenu">
+        <button class="floor-dropdown-item active" data-floor="all">
+          <img src="textures/floor_sel.svg" class="floor-icon">
+          All Floors
+        </button>
+        <button class="floor-dropdown-item" data-floor="floor1">
+          <span class="floor-icon"></span>
+          Floor 1
+        </button>
+        <button class="floor-dropdown-item" data-floor="floor2">
+          <span class="floor-icon"></span>
+          Floor 2
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Control Buttons -->
+	<div class="bottom-controls">
+	  <button class="control-btn" id="homeBtn">
+		<img src="textures/home.svg" alt="Home" class="floor-icon">
+	  </button>
+	  <button class="control-btn" id="dollhouseBtn">
+		<img src="textures/dollhouse.svg" alt="Dollhouse" class="floor-icon">
+	  </button>
+	  <button class="control-btn" id="floorPlanBtn">
+		<img src="textures/floor_plan.svg" alt="Floor Plan" class="floor-icon">
+	  </button>
+	</div>
+  </div>
+
+  <div class="pano-hint" id="panoHint">360° view — press Esc to exit</div>
+  <div class="loading-indicator" id="loadingIndicator">Loading panorama...</div>
+  <div class="hotspot-tooltip" id="hotspotTooltip"></div>
+
+  <div class="info-panel" id="infoPanel">
+    <div class="info-content">
+      <h3>Navigation Controls</h3>
+      <ul>
+        <li><strong>Mouse:</strong> Click and drag to look around</li>
+        <li><strong>Scroll:</strong> Zoom in/out</li>
+        <li><strong>Hotspots:</strong> Click blue cylinders to enter panoramas</li>
+        <li><strong>Controls:</strong> Home, Dollhouse, Floor Plan views</li>
+        <li><strong>Floor Selection:</strong> Dropdown menu to choose floors</li>
+        <li><strong>Keyboard:</strong> H (Home), D (Dollhouse), F (Floor Plan), 1/2 (Floor), A (All), Esc (Exit)</li>
+      </ul>
+    </div>
+    <button class="close-info" id="closeInfoBtn">×</button>
+  </div>
+
+  <button class="info-btn" id="infoBtn">ℹ</button>
+
+  <button class="fullscreen-btn" id="fullscreenBtn">⛶</button>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.163.0/build/three.module.js",
+      "three/examples/jsm/": "https://unpkg.com/three@0.163.0/examples/jsm/"
+    }
+  }
+  </script>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
